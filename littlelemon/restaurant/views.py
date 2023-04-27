@@ -9,11 +9,15 @@ from rest_framework.decorators import api_view, permission_classes,authenticatio
 from rest_framework.permissions import IsAuthenticated
 from django.http import response
 from rest_framework.authentication import TokenAuthentication
+from django.shortcuts import render
 
+
+
+def index(request):
+    return render(request, 'index.html', {})
 
 # Create your views here. 
 class MenuItemsView(ListCreateAPIView):
-    permission_classes = [IsAuthenticated]
     queryset = MenuItem.objects.all()
     serializer_class = MenuSerializers
 
