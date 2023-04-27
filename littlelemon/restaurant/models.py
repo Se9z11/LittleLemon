@@ -8,6 +8,8 @@ class MenuItem(models.Model):
     inventory = models.IntegerField()
     def get_item(self):
         return f'{self.title} : {str(self.price)}'
+    def __str__(self):
+         return f'{self.title} : {str(self.price)}'
 
 class Booking(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
